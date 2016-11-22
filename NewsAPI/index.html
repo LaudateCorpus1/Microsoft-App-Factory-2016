@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>News API Example</title>
+	<style type="text/css">
+		body { margin: 0 auto; color: #333; background-color: #b2dfdb;}
+		a { text-decoration: none; cursor: pointer; }
+		a:hover { text-decoration: underline; }
+		.wrapper { text-align: center; border: 2px solid #222;}
+		.header { text-align: left; background: #4db6ac; width: inherit; top: 0; padding: 10px; text-transform: capitalize; border: 2px solid #009688;}
+		#stat { border: 2px solid blue; width: 10%; padding: 5px; margin-left: 10px; font-size: 20px; }
+		#sou { border: 2px solid red; width: 20%; padding: 5px; margin-left: 10px; font-size: 20px; }
+		#sort { border: 2px solid green; width: 20%; padding: 5px; margin-left: 10px; font-size: 20px; }
+		#art { margin-top: 20px; border-top: 5px solid #009688; border-bottom: 5px solid #009688; padding: 20px; }
+		#art div.get { border: 2px dotted #800000; padding: 20px; border-radius: 5px; }
+		#art p.author { border: 2px solid #9e9e9e; width: 20%; font-size: 20px; }
+		#art p.title { border-bottom: 2px solid #424242; text-transform: capitalize; font-size: 25px;}
+		#art p.published { border: 2px solid #424242; width: 20%; margin-bottom: 20px; clear: all; }
+		#art p.img img { border: 2px solid #424242; width: 50%; height: 50%; border-radius: 5px; }
+		#art p.post { text-align: left; font-size: 28px; border-left: 10px solid #dcdcdc; padding-left: 20px; }
+		#art p.link a { border: 2px solid #9e9e9e; background-color: #333; color: #fafafa; padding: 10px; text-decoration: none; text-transform: capitalize; border-radius: 5px; }
+		#art p.link a:hover { background-color: #222; color: #e0e0e0; }
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			Status : <p id="stat"></p>
+			Source : <p id="sou"></p>
+			Sorted By : <p id="sort"></p>
+		</div>
+		<article id="art"></article>
+	</div>
+
+	<script type="text/javascript">
+		var request = new XMLHttpRequest();
+		request.open('GET', 'https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apiKey=ca684f9fab38475384427cddc7251b91', true);
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400) {
+		    // Success!
+		    var data = JSON.parse(request.responseText);
+		    // console.log(data);
+		    // document.getElementById("news").innerHTML = JSON.stringify(data, null, 4);
+
+		    document.getElementById("stat").innerHTML = data.status;
+		    document.getElementById("sou").innerHTML = data.source;
+		    document.getElementById("sort").innerHTML = data.sortBy;
+
+		    // Articles loop
+		    var art = "";
+			for (var i = 0; i < data.articles.length; i++) {
+			    art +=  "<div class='get'><p class='author'>" + data.articles[i].author + "</p>" + 
+			    		"<p class='title'>" + data.articles[i].title + "</p>" +
+			    		"<p class='published'>" + data.articles[i].publishedAt + "</p>" +
+			    		"<p class='img'>" + "<img src='" + data.articles[i].urlToImage + "'>" + "</p>" +
+			    		"<p class='post'>" + data.articles[i].description + "</p>" +
+			    		"<p class='link'>" + "<a href='" + data.articles[i].url + "' target='_blank'>Read More...</a>" + "</p></div>" +
+			    		"<br><hr><br>";
+			}
+
+			document.getElementById("art").innerHTML = art;
+
+
+		  } else {
+		    alert('Data is dead');
+		  }
+		};
+
+		request.onerror = function() {
+		  alert('could not connect');
+		};
+
+		request.send();
+	</script>
+</body>
+</html>
