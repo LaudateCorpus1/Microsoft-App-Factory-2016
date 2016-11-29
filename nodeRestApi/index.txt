@@ -1,0 +1,37 @@
+
+Hello there!
+
+I am Jeffery the weirdo who created this simple and crazy nano nodejs and expressjs app for:
+
+GETTING,
+POSTING and lastly
+DELETING
+
+whatever data you want.
+
+The following the list of URI's
+
+--------------------------------
+
+FOR MENU ITEMS USE THE FOLLOWING :-------
+
+GET : http://localhost:8081/menu - for getting all menu items using any REST CLIENT APP
+
+POST : http://localhost:8081/addMenu - for posting new menu items using any REST CLIENT APP
+
+GET : http://localhost:8081/menu/:id - for getting the menu items by id using any REST CLIENT APP
+
+DELETE : http://localhost:8081/deleteMenu/:id - for deleting the menu items by id using any REST CLIENT APP
+
+---------------------------------------------------------------------------------------------------------
+
+
+FOR ORDERS USE THE FOLLOWING :-------
+
+GET : http://localhost:8081/orders - for getting all orders using any REST CLIENT APP
+
+POST : http://localhost:8081/addOrder - for posting new orders using any REST CLIENT APP
+
+GET : http://localhost:8081/orders/:id - for getting the orders by id using any REST CLIENT APP
+
+DELETE : http://localhost:8081/deleteOrder/:id - for deleting the orders by id using any REST CLIENT APP

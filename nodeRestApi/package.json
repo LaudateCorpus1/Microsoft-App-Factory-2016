@@ -1,0 +1,15 @@
+{
+  "name": "noderestapi",
+  "version": "1.0.0",
+  "description": "A simple app that returns a json response to api calls...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "clonne101",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

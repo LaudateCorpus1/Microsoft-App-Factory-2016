@@ -1,0 +1,27 @@
+{
+	    "menu1" : {
+	    	"name" : "Grape Juice",
+	    	"type" : "Soft",
+	    	"id" : 1
+	    },
+	    "menu2" : {
+	    	"name" : "Apple Juice",
+	    	"type" : "Soft",
+	    	"id" : 2
+	    },
+	    "menu3" : {
+	    	"name" : "Banana Juice",
+	    	"type" : "Soft",
+	    	"id" : 3
+	    },
+	    "menu4" : {
+	    	"name" : "Hard Gin",
+	    	"type" : "Hard",
+	    	"id" : 4
+	    },
+	    "menu5" : {
+	    	"name" : "Mexican Tequila",
+	    	"type" : "Hard",
+	    	"id" : 5
+	    }
+}
